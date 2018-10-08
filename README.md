@@ -37,39 +37,39 @@ $ ibus-setup
 
 * 選取 dayi，按下 【Add】
 
-![ibus-add input method](images/dayi/040_ibus-setup-selectdayi.png)
+![ibus-add dayi](images/dayi/040_ibus-setup-selectdayi.png)
 
 * 選取 Chinese-dayi ，設定【Preferences】
 
-![ibus-add input method](images/dayi/050_ibus-setup-inputmethoddayi.png)
+![Preferences](images/dayi/050_ibus-setup-inputmethoddayi.png)
 
 * 將 Chinese mode: 設定為 Traditional Chinese，按下【Close】
 
-![ibus-add input method](images/dayi/060_ibus-setup-dayi-preferences.png)
+![Chinese Mode = Traditional Chinese](images/dayi/060_ibus-setup-dayi-preferences.png)
 
 * IBus Preferences 畫面再按下【Close】，完成 ibus 的大易輸入法設定
 
 * 右上角的小工具，展開，選擇設定(Settings)。
 
-![ibus-add input method](images/dayi/070_region-language-topright.png)
+![Settings](images/dayi/070_region-language-topright.png)
 
 * 選取區域和語言(Region & Language)，在輸入來源(Input Sources)點選「加號」
 
-![ibus-add input method](images/dayi/080_region-language-manage-language.png)
+![Select Plus Symbol Button](images/dayi/080_region-language-manage-language.png)
 
 * 選擇輸入來源為「Chinese (Taiwan)」
 
-(images/dayi/090_region-language-select-chinese-taiwan.png)
+![Select Taiwan](images/dayi/090_region-language-select-chinese-taiwan.png)
 
 * 選擇 Chinese (dayi)，然後按下【Add】
 
-(images/dayi/100_region-language-add-dayi.png)
+![Select dayi](images/dayi/100_region-language-add-dayi.png)
 
 * 此時可以在 Input Sources 的區域看到新加入的大易輸入法「Chinese (dayi)」，關閉此視窗
 
-(images/dayi/110_region-language-close.png)
+![dayi](images/dayi/110_region-language-close.png)
 
 * 在右上角的輸入法已經能切換至大易輸入法了
 
-(images/dayi/120_region-language-dayi-done.png)
+![input method](images/dayi/120_region-language-dayi-done.png)
 
