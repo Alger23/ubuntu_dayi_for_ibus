@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cinfile="dayi3.cin"
-tabfile="dayi3.txt"
 templatefile="dayi3template.txt"
 dbfile="dayi3.db"
+tabfile="dayi_tab.txt"
 
 
 # 輸出字根表 tab 分隔
@@ -40,26 +40,30 @@ awk '1;/BEGIN\_TABLE/{exit}' <template.txt >$templatefile
 awk '{if($2) print}' <$tabfile >> $templatefile
 awk '/END\_TABlE/ {seen=1} seen {print}' <template.txt >>$templatefile
 
-sed -i "/UUID/c\UUID = ${uuid}" $templatefile
-sed -i "/SERIAL\_NUMBER/c\SERIAL_NUMBER = ${microseconds}" $templatefile
-sed -i "/ICON/c\ICON = ${icon}" $templatefile
-sed -i "/SYMBOL/c\SYMBOL = ${symbol}" $templatefile
+sed -i "/UUID =/c\UUID = ${uuid}" $templatefile
+sed -i "/SERIAL =\_NUMBER/c\SERIAL_NUMBER = ${microseconds}" $templatefile
+sed -i "/ICON =/c\ICON = ${icon}" $templatefile
+sed -i "/SYMBOL =/c\SYMBOL = ${symbol}" $templatefile
 sed -i "/NAME =/c\NAME = ${name}" $templatefile
-sed -i "/NAME\.zh_CN/c\NAME.zh_CN = ${cn}" $templatefile
-sed -i "/NAME\.zh_HK/c\NAME.zh_HK = ${hk}" $templatefile
-sed -i "/NAME\.zh_TW/c\NAME.zh_TW = ${tw}" $templatefile
-sed -i "/DESCRIPTION/c\DESCRIPTION = ${desc}" $templatefile
-sed -i "/LANGUAGES/c\LANGUAGES = ${lang}" $templatefile
-sed -i "/AUTHOR/c\AUTHOR = ${author}" $templatefile
-sed -i "/STATUS\_PROMPT/c\STATUS_PROMPT = ${statusprompt}" $templatefile
-sed -i "/VALID\_INPUT\_CHARS/c\VALID_INPUT_CHARS = ${inputchars}" $templatefile
+sed -i "/NAME\.zh_CN =/c\NAME.zh_CN = ${cn}" $templatefile
+sed -i "/NAME\.zh_HK =/c\NAME.zh_HK = ${hk}" $templatefile
+sed -i "/NAME\.zh_TW =/c\NAME.zh_TW = ${tw}" $templatefile
+sed -i "/DESCRIPTION =/c\DESCRIPTION = ${desc}" $templatefile
+sed -i "/LANGUAGES =/c\LANGUAGES = ${lang}" $templatefile
+sed -i "/AUTHOR =/c\AUTHOR = ${author}" $templatefile
+sed -i "/STATUS\_PROMPT =/c\STATUS_PROMPT = ${statusprompt}" $templatefile
+sed -i "/VALID\_INPUT\_CHARS =/c\VALID_INPUT_CHARS = ${inputchars}" $templatefile
 
+sed -i "/BEGIN_GOUCI/c\### BEGIN_GOUCI" $templatefile
+sed -i "/character_1	goucima_1/c\### character_1	goucima_1" $templatefile
+sed -i "/character_1	goucima_2/c\### character_1	goucima_2" $templatefile
+sed -i "/END_GOUCI/c\### END_GOUCI" $templatefile
 
 # dayi3template.txt 輸出為 dayi3.db
-#ibus-table-createdb -n dayi3.db -s dayi3template.txt
+ibus-table-createdb -n $dbfile -s $templatefile
 
 # dayi3.db 複製到 /usr/share/ibus-table/tables/
-#cp dayi3.db /usr/share/ibus-table/tables/
+cp $dbfile /usr/share/ibus-table/tables/
 
 # dayi3 圖示複製到 /url/share/ibus-table/icons/
 if [ ! -e dayi3.png ]
@@ -79,4 +83,3 @@ fi
 
 # 重新啟動 ibus
 ibus-daemon -d -x -r
-
