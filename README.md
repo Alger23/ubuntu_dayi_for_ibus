@@ -73,3 +73,23 @@ $ ibus-setup
 
 ![input method](images/dayi/120_region-language-dayi-done.png)
 
+
+## 己知打不出來的字
+
+如果在 Chinese mode 選擇繁體中文，已知下列字打不出來
+
+```
+/mo 向
+o8  只
+```
+
+所以將 Chinese mode 選擇 All Chinese Characters，字會出來但排序不同
+
+![chinese mode](images/dayi/130_ibus-chinese-mode.png)
+
+
+## 已知問題
+
+* 無法用 '[]-\ 選字，要用 Ctrl + 數字
+* 
+

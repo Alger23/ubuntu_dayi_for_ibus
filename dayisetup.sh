@@ -1,10 +1,12 @@
 #!/bin/bash
 
+# 輸入
 cinfile="dayi3.cin"
+
+# 輸出
+tabfile="dayi_tab.txt"
 templatefile="dayi3template.txt"
 dbfile="dayi3.db"
-tabfile="dayi_tab.txt"
-
 
 # 輸出字根表 tab 分隔
 awk '/\%chardef begin/{f=1;next}/\%chardef end/{exit}f' $cinfile | awk '{count[$1]++}{print $1"\t"$2"\t"101-count[$1]}' | tr '[A-Z]' '[a-z]' > $tabfile
@@ -48,7 +50,7 @@ sed -i "/NAME =/c\NAME = ${name}" $templatefile
 sed -i "/NAME\.zh_CN =/c\NAME.zh_CN = ${cn}" $templatefile
 sed -i "/NAME\.zh_HK =/c\NAME.zh_HK = ${hk}" $templatefile
 sed -i "/NAME\.zh_TW =/c\NAME.zh_TW = ${tw}" $templatefile
-sed -i "/DESCRIPTION =/c\DESCRIPTION = ${desc}" $templatefile
+sed -i "/DESCRIPTIONas =/c\DESCRIPTION = ${desc}" $templatefile
 sed -i "/LANGUAGES =/c\LANGUAGES = ${lang}" $templatefile
 sed -i "/AUTHOR =/c\AUTHOR = ${author}" $templatefile
 sed -i "/STATUS\_PROMPT =/c\STATUS_PROMPT = ${statusprompt}" $templatefile
