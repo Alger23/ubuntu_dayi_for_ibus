@@ -32,13 +32,15 @@ with open(cinfile) as fp:
     for line in fp:
         if line.strip() == '%chardef begin':
             begin = True
+            continue
         if not begin:
             continue
         if line.strip() == '%chardef end':
             break
-        code, char = line.strip().split()
+        line = line[:-1]
+        code, char = line.split(" ", maxsplit=1)
         count[code] = count.get(code, 0) + 1
-        tabfile.append("%s\t%s\t%d" % (code.upper(), char, 100-count[code]))
+        tabfile.append("%s\t%s\t%d" % (code.upper(), char.replace(" ",""), 101-count[code]))
 
 # 從 ibus-table 的資料夾開啟輸入法表的範本,合拼輸入設定和字根表到 dayi3template.txt
 templatein="/usr/share/ibus-table/tables/template.txt"
@@ -59,16 +61,16 @@ attrs = {
 }
 with open(templatefile, "w") as out, open(templatein) as fp:
     for line in fp:
-        m = re.match(r"(\w+)(\s=\s)(.*$)", line)
+        m = re.match(r"([\w.]+)(\s=\s)(.*$)", line)
         if m and m.group(1) in attrs:
-            out.write("%s%s%s" % (m.group(1), m.group(2), attrs[m.group(1)]))
+            out.write("%s%s%s\n" % (m.group(1), m.group(2), attrs[m.group(1)]))
         else:
             out.write(line)
         if line.strip() == "BEGIN_TABLE":
             out.write("\n".join(tabfile) + "\n")
             for line in fp:
                 # skip to END_TABLE
-                if line.strip() == "END_TABLE":
+                if line.strip() == "END_TABlE":
                     out.write(line)
                     break
         elif line.strip() == "BEGIN_GOUCI":
