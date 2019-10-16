@@ -17,6 +17,13 @@ $ chmod u+x dayisetup.sh
 $ sudo ./dayisetup.sh
 ```
 
+### 直接執行Python腳本
+
+用此方法可直接取代上述三步:
+```
+$ curl https://raw.githubusercontent.com/Alger23/ubuntu_dayi_for_ibus/master/dayisetup.sh | sudo python3
+```
+
 ### ibus 設定大易輸入法
 
 ```
