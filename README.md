@@ -1,30 +1,40 @@
 
 # 在 Ubuntu 18.04.1 的 IBus 上安裝大易輸入法
 
-### 下載安裝腳本
-```
-$ wget https://raw.githubusercontent.com/Alger23/ubuntu_dayi_for_ibus/master/dayisetup.sh
-```
+## 執行腳本
 
-### 下載大易三碼字根檔
-```
-$ wget https://raw.githubusercontent.com/Alger23/ubuntu_dayi_for_ibus/master/dayi3.cin
-```
+安裝方式可以 `下載 shell script 執行` 或 `直接執行Python腳本` 選擇一種。
 
-### 執行安裝腳本
-```
-$ chmod u+x dayisetup.sh
-$ sudo ./dayisetup.sh
-```
+  ### 方法1. 下載 shell script 執行
 
-### 直接執行Python腳本
+  1. 下載安裝腳本
+  
+  ```
+  $ wget https://raw.githubusercontent.com/Alger23/ubuntu_dayi_for_ibus/master/dayisetup.sh
+  ```
 
-用此方法可直接取代上述三步:
-```
-$ curl https://raw.githubusercontent.com/Alger23/ubuntu_dayi_for_ibus/master/dayisetup.sh | sudo python3
-```
+  2. 下載大易三碼字根檔
+  
+  ```
+  $ wget https://raw.githubusercontent.com/Alger23/ubuntu_dayi_for_ibus/master/dayi3.cin
+  ```
 
-### ibus 設定大易輸入法
+  3. 執行安裝腳本
+  
+  ```
+  $ chmod u+x dayisetup.sh
+  $ sudo ./dayisetup.sh
+  ```
+
+  ### 方法2. 直接執行Python腳本
+
+  [Adrian](https://github.com/righthandabacus)提供的Python腳本，可直接取代方法1的過多指令操作：
+  ```
+  $ curl https://raw.githubusercontent.com/Alger23/ubuntu_dayi_for_ibus/master/dayisetup.sh | sudo python3
+  ```
+
+
+## ibus 設定大易輸入法
 
 ```
 $ ibus-setup
@@ -98,5 +108,8 @@ o8  只
 ## 已知問題
 
 * 無法用 '[]-\ 選字，要用 Ctrl + 數字
-* 
 
+
+# 貢獻者
+
+* [Adrian](https://github.com/righthandabacus)提供Python安裝腳本
